@@ -42,4 +42,131 @@ nav a:hover { color:#555; }
 .hero p { font-size:1.2em; margin-bottom:30px; animation: fadeInUp 2s ease forwards; opacity:0; }  
 .hero button {  
   padding:15px 30px; font-size:1em; border:none; cursor:pointer;  
-  background:#000; color:#fff; transition: all 0  
+  background:#000; color:#fff; transition: all 0.3s ease;  
+}  
+.hero button:hover { background:#444; transform: scale(1.05); }  
+  
+/* Sobre */  
+section { padding:80px 50px; max-width:1200px; margin:0 auto; }  
+.about { display:flex; flex-wrap:wrap; align-items:center; justify-content: space-between; perspective:1000px; }  
+.about .text { flex:1 1 500px; animation: fadeIn 1s ease forwards; opacity:0; }  
+.about .image { flex:1 1 500px; text-align:center; animation: fadeIn 1.5s ease forwards; opacity:0; }  
+.about img { max-width:100%; border-radius:10px; transform: translateZ(0); transition: transform 0.5s ease; }  
+.about img:hover { transform: scale(1.02) translateZ(20px); }  
+  
+/* Serviços */  
+.services { display:flex; flex-wrap:wrap; justify-content: space-around; margin-top:50px; }  
+.service-card {  
+  background:#3a3a3a; padding:30px; margin:20px; border-radius:10px; flex:1 1 250px;  
+  transition: all 0.3s ease; text-align:center; position:relative; overflow:hidden;  
+}  
+.service-card::after {  
+  content:''; position:absolute; top:0; left:0; width:100%; height:100%;  
+  background: linear-gradient(120deg, rgba(255,255,255,0.1), rgba(0,0,0,0)); opacity:0;  
+  border-radius:10px; transition: opacity 0.3s ease;  
+}  
+.service-card:hover::after { opacity:1; }  
+.service-card:hover { transform: translateY(-10px) rotateZ(1deg); box-shadow:0 10px 20px rgba(0,0,0,0.5); }  
+  
+/* Vídeo Institucional */  
+.video-section { text-align:center; margin:80px 0; perspective:1000px; }  
+.video-section video { max-width:100%; border-radius:10px; transition: transform 0.3s ease; }  
+.video-section video:hover { transform: scale(1.02) rotateY(2deg); }  
+  
+/* Contato */  
+.contact form { display:flex; flex-direction:column; max-width:500px; margin:0 auto; }  
+.contact input, .contact textarea {  
+  padding:15px; margin-bottom:20px; border:2px solid #000; border-radius:5px; transition: all 0.3s ease; background:#2b2b2b; color:#000;  
+}  
+.contact input:focus, .contact textarea:focus { border-color:#fff; outline:none; box-shadow:0 0 10px rgba(255,255,255,0.5);}  
+.contact button { padding:15px; background:#000; color:#fff; border:none; cursor:pointer; transition: all 0.3s ease; }  
+.contact button:hover { background:#444; transform: scale(1.05); box-shadow:0 0 10px rgba(255,255,255,0.3); }  
+  
+/* Rodapé */  
+footer { text-align:center; padding:50px 20px; background:#333; color:#000; }  
+footer a { color:#000; margin:0 10px; text-decoration:none; transition: all 0.3s ease; }  
+footer a:hover { color:#fff; text-shadow:0 0 5px #fff; }  
+  
+/* Parallax e animações */  
+[data-animate] { opacity:0; transform: translateY(20px); transition: all 0.8s ease; }  
+[data-animate].active { opacity:1; transform: translateY(0); }  
+  
+@keyframes fadeInUp { 0% { transform: translateY(20px); opacity:0; } 100% { transform: translateY(0); opacity:1; } }  
+@keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; } }  
+</style>  
+</head>  
+<body>  
+  
+<header>  
+  <h1>VCF HOLDING</h1>  
+  <nav>  
+    <a href="#about">Sobre Nós</a>  
+    <a href="#services">Serviços</a>  
+    <a href="#video">Vídeo Institucional</a>  
+    <a href="#contact">Contato</a>  
+    <a href="#">PT / EN</a>  
+  </nav>  
+</header>  
+  
+<section class="hero" data-animate>  
+  <h2>Excelência em Consultoria Financeira e Investimentos</h2>  
+  <p>Parcerias sólidas, soluções estratégicas e resultados confiáveis.</p>  
+  <button>Saiba Mais</button>  
+</section>  
+  
+<section id="about" class="about" data-animate>  
+  <div class="text">  
+    <h2>Sobre a VCF HOLDING</h2>  
+    <p>A VCF HOLDING CAPITAL FINANCEIRO S/A atua com parcerias sólidas, exportando commodities e trazendo investimentos para o mercado interno, auxiliando no levantamento de recursos e fornecendo consultoria em transações complexas.</p>  
+  </div>  
+  <div class="image">  
+    <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" alt="Equipe corporativa">  
+  </div>  
+</section>  
+  
+<section id="services" class="services" data-animate>  
+  <div class="service-card">  
+    <h3>Consultoria Financeira</h3>  
+    <p>Soluções estratégicas para otimizar seu capital e investimentos.</p>  
+  </div>  
+  <div class="service-card">  
+    <h3>Fusões e Aquisições</h3>  
+    <p>Assistência completa em fusões, aquisições e transações complexas.</p>  
+  </div>  
+  <div class="service-card">  
+    <h3>Investimentos</h3>  
+    <p>Conectando oportunidades de investimento a resultados concretos.</p>  
+  </div>  
+</section>  
+  
+<section id="video" class="video-section" data-animate>  
+  <h2>Vídeo Institucional</h2>  
+  <video controls>  
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">  
+    Seu navegador não suporta o elemento de vídeo.  
+  </video>  
+</section>  
+  
+<section id="contact" class="contact" data-animate>  
+  <h2>Contato</h2>  
+  <form>  
+    <input type="text" placeholder="Nome">  
+    <input type="email" placeholder="Email">  
+    <textarea rows="5" placeholder="Mensagem"></textarea>  
+    <input type="text" placeholder="Telefone">  
+    <button type="submit">Enviar</button>  
+  </form>  
+  <p>Telefone: +55 67 98116-2863 | VAGNER COSTA - CEO</p>  
+</section>  
+  
+<footer>  
+  <p>&copy; 2026 VCF HOLDING CAPITAL FINANCEIRO S/A</p>  
+  <p>  
+    <a href="#">LinkedIn</a> |  
+    <a href="#">Instagram</a> |  
+    <a href="#">Facebook</a>  
+  </p>  
+</footer>  
+  
+</body>  
+</html>  
