@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VCF HOLDING CAPITAL FINANCEIRO S/A - Cinemático</title>
+<title>VCF HOLDING CAPITAL FINANCEIRO S/A - Premium</title>
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; scroll-behavior: smooth; }
-body { background:#2b2b2b; color:#fff; overflow-x:hidden; }
+/* Reset e básico */
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; scroll-behavior: smooth;}
+body { background:#2b2b2b; color:#000; overflow-x:hidden; }
 
 /* Cabeçalho */
 header {
@@ -15,11 +16,11 @@ header {
   padding:20px 50px; background: rgba(51,51,51,0.95);
   z-index:1000; transition: all 0.3s ease;
 }
-header h1 { font-family:'Georgia', serif; font-size:28px; }
+header h1 { font-family:'Georgia', serif; font-size:28px; color:#fff; }
 nav a { color:#fff; margin-left:20px; text-decoration:none; transition: all 0.3s ease; }
-nav a:hover { color:#aaa; }
+nav a:hover { color:#ccc; }
 
-/* Hero */
+/* Hero Cinemático */
 .hero {
   height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
   text-align:center; position: relative; overflow:hidden;
@@ -30,19 +31,25 @@ nav a:hover { color:#aaa; }
   background: rgba(0,0,0,0.25);
 }
 .hero h2, .hero p, .hero button { position:relative; z-index:1; color:#fff; }
-.hero h2 { font-size:3em; margin-bottom:20px; overflow:hidden; border-right:0.15em solid #fff; white-space:nowrap; }
-.hero p { font-size:1.2em; margin-bottom:30px; opacity:0; transform: translateY(20px); transition: all 0.8s ease; }
+
+/* Efeito typing do título */
+.hero h2 { font-size:3em; margin-bottom:20px; overflow:hidden; border-right:0.15em solid #fff; white-space:nowrap; animation: typing 3s steps(40) 1s forwards, blink 0.75s step-end infinite;}
+@keyframes typing { from { width:0; } to { width:100%; } }
+@keyframes blink { 50% { border-color: transparent; } }
+
+/* Hero texto e botão */
+.hero p { font-size:1.2em; margin-bottom:30px; animation: fadeInUp 2s ease forwards; opacity:0; }
 .hero button {
   padding:15px 30px; font-size:1em; border:none; cursor:pointer;
-  background:#000; color:#fff; transition: all 0.3s ease;
+  background:#000; color:#fff; transition: all 0.3s ease; border-radius:5px;
 }
-.hero button:hover { background:#444; transform: scale(1.05); }
+.hero button:hover { background:#444; transform: scale(1.05); box-shadow:0 0 10px rgba(255,255,255,0.3); }
 
 /* Sobre */
 section { padding:80px 50px; max-width:1200px; margin:0 auto; }
 .about { display:flex; flex-wrap:wrap; align-items:center; justify-content: space-between; perspective:1000px; }
-.about .text { flex:1 1 500px; opacity:0; transform: translateY(20px); transition: all 0.8s ease; }
-.about .image { flex:1 1 500px; text-align:center; opacity:0; transform: translateY(20px); transition: all 0.8s ease; }
+.about .text { flex:1 1 500px; animation: fadeIn 1s ease forwards; opacity:0; color:#fff; }
+.about .image { flex:1 1 500px; text-align:center; animation: fadeIn 1.5s ease forwards; opacity:0; }
 .about img { max-width:100%; border-radius:10px; transform: translateZ(0); transition: transform 0.5s ease; }
 .about img:hover { transform: scale(1.02) translateZ(20px); }
 
@@ -50,7 +57,7 @@ section { padding:80px 50px; max-width:1200px; margin:0 auto; }
 .services { display:flex; flex-wrap:wrap; justify-content: space-around; margin-top:50px; }
 .service-card {
   background:#3a3a3a; padding:30px; margin:20px; border-radius:10px; flex:1 1 250px;
-  transition: all 0.3s ease; text-align:center; position:relative; overflow:hidden;
+  transition: all 0.3s ease; text-align:center; position:relative; overflow:hidden; color:#fff;
 }
 .service-card::after {
   content:''; position:absolute; top:0; left:0; width:100%; height:100%;
@@ -60,27 +67,33 @@ section { padding:80px 50px; max-width:1200px; margin:0 auto; }
 .service-card:hover::after { opacity:1; }
 .service-card:hover { transform: translateY(-10px) rotateZ(1deg); box-shadow:0 10px 20px rgba(0,0,0,0.5); }
 
-/* Vídeo */
-.video-section { text-align:center; margin:80px 0; perspective:1000px; opacity:0; transform: translateY(20px); transition: all 0.8s ease; }
+/* Vídeo Institucional */
+.video-section { text-align:center; margin:80px 0; perspective:1000px; color:#fff; }
 .video-section video { max-width:100%; border-radius:10px; transition: transform 0.3s ease; }
 .video-section video:hover { transform: scale(1.02) rotateY(2deg); }
 
 /* Contato */
+.contact { color:#fff; }
 .contact form { display:flex; flex-direction:column; max-width:500px; margin:0 auto; }
+.contact p { font-size:1.1em; margin-bottom:20px; text-align:center; line-height:1.4em; }
 .contact input, .contact textarea {
   padding:15px; margin-bottom:20px; border:2px solid #fff; border-radius:5px; transition: all 0.3s ease; background:#2b2b2b; color:#fff;
 }
-.contact input:focus, .contact textarea:focus { border-color:#fff; outline:none; box-shadow:0 0 10px rgba(255,255,255,0.5);}
+.contact input:focus, .contact textarea:focus { border-color:#ccc; outline:none; box-shadow:0 0 10px rgba(255,255,255,0.5);}
 .contact button { padding:15px; background:#000; color:#fff; border:none; cursor:pointer; transition: all 0.3s ease; }
 .contact button:hover { background:#444; transform: scale(1.05); box-shadow:0 0 10px rgba(255,255,255,0.3); }
 
 /* Rodapé */
 footer { text-align:center; padding:50px 20px; background:#333; color:#fff; }
 footer a { color:#fff; margin:0 10px; text-decoration:none; transition: all 0.3s ease; }
-footer a:hover { color:#aaa; text-shadow:0 0 5px #fff; }
+footer a:hover { color:#ccc; text-shadow:0 0 5px #fff; }
 
-/* Elementos ativos */
-.active { opacity:1 !important; transform: translateY(0) !important; }
+/* Parallax e animações */
+[data-animate] { opacity:0; transform: translateY(20px); transition: all 0.8s ease; }
+[data-animate].active { opacity:1; transform: translateY(0); }
+
+@keyframes fadeInUp { 0% { transform: translateY(20px); opacity:0; } 100% { transform: translateY(0); opacity:1; } }
+@keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; } }
 </style>
 </head>
 <body>
@@ -119,69 +132,70 @@ footer a:hover { color:#aaa; text-shadow:0 0 5px #fff; }
   </div>
   <div class="service-card">
     <h3>Fusões e Aquisições</h3>
-    <p>Assistência completa em fusões, aquisições e transações complexas.</p>
+    <p>Assessoria completa em operações complexas de mercado.</p>
   </div>
   <div class="service-card">
-    <h3>Investimentos</h3>
-    <p>Conectando oportunidades de investimento a resultados concretos.</p>
+    <h3>Levantamento de Capital</h3>
+    <p>Captação de recursos para projetos e investimentos internos.</p>
+  </div>
+  <div class="service-card">
+    <h3>Exportação de Commodities</h3>
+    <p>Parcerias internacionais para expandir seu alcance global.</p>
   </div>
 </section>
 
 <section id="video" class="video-section" data-animate>
   <h2>Vídeo Institucional</h2>
-  <video controls>
+  <video autoplay muted loop poster="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600">
     <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-    Seu navegador não suporta o elemento de vídeo.
+    Seu navegador não suporta vídeos.
   </video>
 </section>
 
 <section id="contact" class="contact" data-animate>
   <h2>Contato</h2>
+  <p><strong>Telefone:</strong> +55 67 98116‑2863<br>
+     <strong>VAGNER COSTA</strong> - CEO</p>
   <form>
-    <input type="text" placeholder="Nome">
-    <input type="email" placeholder="Email">
-    <textarea rows="5" placeholder="Mensagem"></textarea>
-    <input type="text" placeholder="Telefone">
+    <input type="text" placeholder="Nome" required>
+    <input type="email" placeholder="Email" required>
+    <textarea rows="5" placeholder="Mensagem" required></textarea>
     <button type="submit">Enviar</button>
   </form>
-  <p>Telefone: +55 67 98116-2863 | VAGNER COSTA - CEO</p>
 </section>
 
 <footer>
-  <p>&copy; 2026 VCF HOLDING CAPITAL FINANCEIRO S/A</p>
+  <p>© 2026 VCF HOLDING CAPITAL FINANCEIRO S/A. Todos os direitos reservados.</p>
   <p>
-    <a href="#">LinkedIn</a> |
-    <a href="#">Instagram</a> |
+    <a href="#">LinkedIn</a>
+    <a href="#">Instagram</a>
     <a href="#">Facebook</a>
   </p>
 </footer>
 
-<!-- Scripts de animação -->
 <script>
-// Efeito fade ao rolar
-const animatedElements = document.querySelectorAll('[data-animate]');
-function checkAnimations() {
-  animatedElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 100) el.classList.add('active');
+// Scroll animation
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('active');
+    }
   });
-}
-window.addEventListener('scroll', checkAnimations);
-window.addEventListener('load', checkAnimations);
+},{threshold:0.2});
+document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
-// Efeito digitação do título
-const heroTitle = document.querySelector('.hero h2');
-const text = heroTitle.textContent;
-heroTitle.textContent = '';
-let index = 0;
-function typeWriter() {
-  if(index < text.length) {
-    heroTitle.textContent += text.charAt(index);
-    index++;
-    setTimeout(typeWriter, 50);
-  }
-}
-window.addEventListener('load', typeWriter);
+// Botão "Saiba Mais" scroll suave
+document.querySelector('.hero button').addEventListener('click', () => {
+  document.querySelector('#about').scrollIntoView({behavior: 'smooth'});
+});
+
+// Efeito parallax na imagem da seção Sobre
+window.addEventListener('scroll', () => {
+  const scrollPos = window.scrollY;
+  document.querySelectorAll('.about img').forEach(img => {
+    img.style.transform = `translateY(${scrollPos * 0.05}px) scale(1.02)`;
+  });
+});
 </script>
 
 </body>
